@@ -57,7 +57,7 @@ public abstract class CardStackAdapter extends BaseCardStackAdapter {
 			}
 			cardView = innerWrapper.getChildAt(0);
 			convertedCardView = getCardView(position, getCardModel(position), cardView, parent);
-			if (convertedCardView != cardView) {
+			if (!convertedCardView.equals(cardView)) {
 				wrapper.removeView(cardView);
 				wrapper.addView(convertedCardView);
 			}
