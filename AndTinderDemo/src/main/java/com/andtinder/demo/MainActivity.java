@@ -81,19 +81,16 @@ public class MainActivity extends Activity {
         cardModel.setOnClickListener(new CardModel.OnClickListener() {
            @Override
            public void OnClickListener() {
-               Log.i("Swipeable Cards","I am pressing the card");
            }
         });
 
         cardModel.setOnCardDimissedListener(new CardModel.OnCardDimissedListener() {
             @Override
             public void onLike() {
-                Log.i("Swipeable Cards","I like the card");
             }
 
             @Override
             public void onDislike() {
-                Log.i("Swipeable Cards","I dislike the card");
             }
         });
 

@@ -247,7 +247,6 @@ public class CardContainer extends AdapterView<ListAdapter> {
 		if (mGestureDetector.onTouchEvent(event)) {
 			return true;
 		}
-		Log.d("Touch Event", MotionEvent.actionToString(event.getActionMasked()) + " ");
 		final int pointerIndex;
 		final float x, y;
 		final float dx, dy;
@@ -425,7 +424,6 @@ public class CardContainer extends AdapterView<ListAdapter> {
 	private class GestureListener extends SimpleOnGestureListener {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-			Log.d("Fling", "Fling with " + velocityX + ", " + velocityY);
 			final View topCard = mTopCard;
 			float dx = e2.getX() - e1.getX();
 			if (Math.abs(dx) > mTouchSlop &&

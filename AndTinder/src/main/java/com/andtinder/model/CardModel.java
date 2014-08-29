@@ -17,14 +17,10 @@
 
 package com.andtinder.model;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 public class CardModel {
 
-	private String   title;
-	private String   description;
 	private Drawable cardImageDrawable;
 	private Drawable cardLikeImageDrawable;
 	private Drawable cardDislikeImageDrawable;
@@ -42,37 +38,8 @@ public class CardModel {
         void OnClickListener();
     }
 
-	public CardModel() {
-		this(null, null, (Drawable)null);
-	}
+	public CardModel() {}
 
-	public CardModel(String title, String description, Drawable cardImage) {
-		this.title = title;
-		this.description = description;
-		this.cardImageDrawable = cardImage;
-	}
-
-	public CardModel(String title, String description, Bitmap cardImage) {
-		this.title = title;
-		this.description = description;
-		this.cardImageDrawable = new BitmapDrawable(null, cardImage);
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public Drawable getCardImageDrawable() {
 		return cardImageDrawable;
