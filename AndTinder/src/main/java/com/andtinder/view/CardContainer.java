@@ -11,7 +11,6 @@ import android.database.DataSetObserver;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Gravity;
@@ -39,7 +38,6 @@ public class CardContainer extends AdapterView<ListAdapter> {
 		@Override
 		public void onChanged() {
 			super.onChanged();
-			clearStack();
 			ensureFull();
 		}
 
@@ -120,19 +118,18 @@ public class CardContainer extends AdapterView<ListAdapter> {
 			mListAdapter.unregisterDataSetObserver(mDataSetObserver);
 
 		clearStack();
-		mTopCard = null;
 		mListAdapter = adapter;
-		mNextAdapterPosition = 0;
-		adapter.registerDataSetObserver(mDataSetObserver);
-
+		mListAdapter.registerDataSetObserver(mDataSetObserver);
 		ensureFull();
+		updateTopView();
+		requestLayout();
+	}
 
+	public void updateTopView() {
 		if (getChildCount() != 0) {
 			mTopCard = getChildAt(getChildCount() - 1);
 			mTopCard.setLayerType(LAYER_TYPE_HARDWARE, null);
 		}
-        mNumberOfCards = getAdapter().getCount();
-		requestLayout();
 	}
 
 	private void ensureFull() {
