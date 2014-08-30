@@ -33,7 +33,6 @@ public class CardContainer extends AdapterView<ListAdapter> {
 	public static final int INVALID_POINTER_ID = -1;
 	private int mActivePointerId = INVALID_POINTER_ID;
 	private static final double DISORDERED_MAX_ROTATION_RADIANS = Math.PI / 64;
-    private int mNumberOfCards = -1;
 	private final DataSetObserver mDataSetObserver = new DataSetObserver() {
 		@Override
 		public void onChanged() {
@@ -71,7 +70,7 @@ public class CardContainer extends AdapterView<ListAdapter> {
 		super(context);
 
         setOrientation(Orientation.Disordered);
-		setGravity(Gravity.CENTER);
+		mGravity = Gravity.CENTER;
 		init();
 
 	}
@@ -100,7 +99,7 @@ public class CardContainer extends AdapterView<ListAdapter> {
 		TypedArray a = getContext().obtainStyledAttributes(attr,
 				R.styleable.CardContainer);
 
-		setGravity(a.getInteger(R.styleable.CardContainer_android_gravity, Gravity.CENTER));
+		mGravity = a.getInteger(R.styleable.CardContainer_android_gravity, Gravity.CENTER);
 		int orientation = a.getInteger(R.styleable.CardContainer_orientation, 1);
 		setOrientation(Orientation.fromIndex(orientation));
 
